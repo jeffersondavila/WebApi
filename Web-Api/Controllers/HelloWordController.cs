@@ -10,10 +10,12 @@ namespace Web_Api.Controllers
 	public class HelloWordController : ControllerBase
 	{
 		private readonly IHelloWordService _helloWordService;
+		private readonly ILogger<HelloWordController> logger;
 
-		public HelloWordController(IHelloWordService helloWordService)
+		public HelloWordController(IHelloWordService helloWordService, ILogger<HelloWordController> logger)
 		{
 			_helloWordService = helloWordService;
+			this.logger = logger;
 		}
 
 		// GET: api/<HelloWordController>
@@ -21,6 +23,7 @@ namespace Web_Api.Controllers
 		public IActionResult Get()
 		{
 			var message = _helloWordService.GetHelloWord();
+			logger.LogInformation($"Logger: {message}");
 			return Ok(message);
 		}
 
