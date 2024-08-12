@@ -12,9 +12,9 @@ namespace Web_Api.Services
 			context = db;
 		}
 
-		public IEnumerable<Categorium> GetCategoria()
+		public Categorium GetCategoria(Guid id)
 		{
-			return context.Categoria;
+			return context.Categoria.Find(id) ?? new Categorium();
 		}
 
 		public async Task SaveCategoria(Categorium categoria)
