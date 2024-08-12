@@ -21,14 +21,16 @@ namespace Web_Api.Controllers
 		[HttpGet]
 		public IActionResult Get()
 		{
-			return Ok(categoriaService.GetCategoria());
+			var categoria = categoriaService.GetCategoria();
+			return Ok(categoria);
 		}
 
 		// GET api/<CategoriaController>/5
 		[HttpGet("{id}")]
 		public IActionResult Get(Guid id)
 		{
-			return Ok();
+			var categoria = categoriaService.GetCategoria(id);
+			return Ok(categoria);
 		}
 
 		// POST api/<CategoriaController>

@@ -21,15 +21,16 @@ namespace Web_Api.Controllers
 		[HttpGet]
 		public IActionResult Get()
 		{
-			tareaService.GetTarea();
-			return Ok();
+			var tarea = tareaService.GetTarea();
+			return Ok(tarea);
 		}
 
 		// GET api/<TaareaController>/5
 		[HttpGet("{id}")]
-		public IActionResult Get(int id)
+		public IActionResult Get(Guid id)
 		{
-			return Ok();
+			var tarea = tareaService.GetTarea(id);
+			return Ok(tarea);
 		}
 
 		// POST api/<TaareaController>

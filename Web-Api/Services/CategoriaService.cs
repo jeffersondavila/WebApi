@@ -19,7 +19,7 @@ namespace Web_Api.Services
 
 		public Categorium GetCategoria(Guid id)
 		{
-			return context.Categoria.Find(id) ?? new Categorium();
+			return context.Categoria.Find(id);
 		}
 
 		public async Task SaveCategoria(Categorium categoria)

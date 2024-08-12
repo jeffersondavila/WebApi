@@ -18,7 +18,7 @@ namespace Web_Api.Services
 
 		public Tarea GetTarea(Guid id)
 		{
-			return context.Tareas.Find(id) ?? new Tarea();
+			return context.Tareas.Find(id);
 		}
 
 		public async Task SaveTarea(Tarea tarea)
