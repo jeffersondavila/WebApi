@@ -11,6 +11,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//// Configura CORS
+//builder.Services.AddCors(options =>
+//{
+//	options.AddPolicy("CorsPolicy", builder =>
+//	{
+//		builder.WithOrigins("https://localhost:7068")  // Origen de tu aplicación Blazor
+//			   .AllowAnyMethod()
+//			   .AllowAnyHeader();
+//	});
+//});
+
 builder.Services.AddSqlServer<TareasDbContext>(builder.Configuration.GetConnectionString("urlConnection"));
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddScoped<ITareaService, TareaService>();
@@ -25,6 +36,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
