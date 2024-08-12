@@ -57,6 +57,7 @@ namespace Web_Api.Services
 	public interface ITareaService
 	{
 		IEnumerable<Tarea> GetTarea();
+		Tarea GetTarea(Guid id);
 		Task SaveTarea(Tarea tarea);
 		Task UpdateTarea(Tarea tarea, Guid id);
 		Task DeleteTarea(Guid id);

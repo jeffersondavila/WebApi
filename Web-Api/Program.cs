@@ -1,4 +1,5 @@
 using Web_Api.Middlewares;
+using Web_Api.Models;
 using Web_Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSqlServer<TareasDbContext>(builder.Configuration.GetConnectionString("urlConnection"));
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddScoped<ITareaService, TareaService>();
 

@@ -12,6 +12,11 @@ namespace Web_Api.Services
 			context = db;
 		}
 
+		public IEnumerable<Categorium> GetCategoria()
+		{
+			return context.Categoria;
+		}
+
 		public Categorium GetCategoria(Guid id)
 		{
 			return context.Categoria.Find(id) ?? new Categorium();
@@ -52,6 +57,7 @@ namespace Web_Api.Services
 	public interface ICategoriaService
 	{
 		IEnumerable<Categorium> GetCategoria();
+		Categorium GetCategoria(Guid id);
 		Task SaveCategoria(Categorium categoria);
 		Task UpdateCategoria(Categorium categoria, Guid id);
 		Task DeleteCategoria(Guid id);
